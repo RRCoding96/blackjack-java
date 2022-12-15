@@ -22,4 +22,12 @@ public class Card {
     public void setDenomination(String denomination) {
         this.denomination = denomination;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "pattern='" + pattern +
+                ", denomination='" + denomination +
+                '}';
+    }
 }
