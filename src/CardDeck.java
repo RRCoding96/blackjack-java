@@ -17,10 +17,7 @@ public class CardDeck {
 
         for (String pattern : PATTERNS) {
             for (int i = 1; i <= CARD_COUNT; i++) {
-                String denomination = this.numberToDenomination(i);
-
-                Card card = new Card(pattern, denomination);
-
+                Card card = new Card(pattern, i);
                 cards.add(card);
             }
         }
@@ -28,20 +25,7 @@ public class CardDeck {
         return cards;
     }
 
-    private String numberToDenomination(int number) {
-        switch (number) {
-            case 1:
-                return "A";
-            case 11:
-                return "J";
-            case 12:
-                return "Q";
-            case 13:
-                return "K";
-            default:
-                return String.valueOf(number);
-        }
-    }
+
 
     public Card draw() {
         Card selectCard = getRandomCard();
