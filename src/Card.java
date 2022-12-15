@@ -48,6 +48,10 @@ public class Card {
         this.denomination = denomination;
     }
 
+    public int getPoint() {
+        return point;
+    }
+
     @Override
     public String toString() {
         return "Card{" +
