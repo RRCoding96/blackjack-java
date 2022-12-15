@@ -1,11 +1,16 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class Gamer {
     private List<Card> cards;
 
+    public Gamer() {
+        cards = new LinkedList<>();
+    }
+
     public void receiveCard(Card card) {
         this.cards.add(card);
-        showCards();
+        this.showCards();
     }
 
     public void showCards() {
