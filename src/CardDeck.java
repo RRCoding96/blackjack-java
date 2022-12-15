@@ -15,8 +15,8 @@ public class CardDeck {
     private List<Card> generateCards() {
         List<Card> cards = new LinkedList<>();
 
-        for(String pattern : PATTERNS) {
-            for(int i=1; i<=CARD_COUNT; i++) {
+        for (String pattern : PATTERNS) {
+            for (int i = 1; i <= CARD_COUNT; i++) {
                 String denomination = this.numberToDenomination(i);
 
                 Card card = new Card(pattern, denomination);
@@ -30,12 +30,31 @@ public class CardDeck {
 
     private String numberToDenomination(int number) {
         switch (number) {
-            case 1 : return "A";
-            case 11 : return "J";
-            case 12 : return "Q";
-            case 13 : return "K";
-            default: return String.valueOf(number);
+            case 1:
+                return "A";
+            case 11:
+                return "J";
+            case 12:
+                return "Q";
+            case 13:
+                return "K";
+            default:
+                return String.valueOf(number);
         }
+    }
+
+    public Card draw() {
+        Card selectCard = getRandomCard();
+        cards.remove(selectCard);
+
+        return selectCard;
+    }
+
+    private Card getRandomCard() {
+        int size = cards.size();
+        int select = (int) (Math.random() * size);
+
+        return cards.get(select);
     }
 
     public Card getCard() {
@@ -46,7 +65,7 @@ public class CardDeck {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for(Card card : cards) {
+        for (Card card : cards) {
             sb.append(card.toString());
             sb.append("\n");
         }
